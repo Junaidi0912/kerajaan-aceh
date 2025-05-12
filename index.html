@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+v<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kerajaan Aceh Darussalam</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display :wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --coklat-gelap: #3A2E26;
@@ -21,6 +21,41 @@
             text-align: center;
         }
 
+        /* Navbar Nama Anggota Bergerak */
+        .navbar {
+            background-color: var(--coklat-gelap);
+            padding: 0.8rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            color: var(--emas);
+            font-size: 1.1rem;
+            font-weight: bold;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding: 0 1rem;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
         /* Hero Section */
         header {
             height: 100vh;
@@ -29,6 +64,7 @@
             align-items: center;
             flex-direction: column;
             padding: 0 20px;
+            padding-top: 8rem; /* Agar tidak tertutup navbar */
         }
 
         h1 {
@@ -92,11 +128,24 @@
     </style>
 </head>
 <body>
+
+    <!-- Navbar dengan Nama Anggota Bergerak -->
+    <div class="navbar">
+        <div class="marquee">
+            <span>Akhmad Junaidi Al Faridz</span>
+            <span>Namira</span>
+            <span>Heldatul Janah</span>
+            <span>Akhmad Junaidi Al Faridz</span>
+            <span>Namira</span>
+            <span>Heldatul Janah</span>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <header>
         <h1>KERAJAAN ACEH DARUSSALAM</h1>
         <p class="subtitle">Kejayaan Islam di Ujung Sumatra</p>
-        <a href="https://junaidi0912.github.io/kerajaan-aceh/bab" class="btn-gold">Jelajahi Sekarang</a>
+        <a href="https://junaidi0912.github.io/kerajaan-aceh/bab " class="btn-gold">Jelajahi Sekarang</a>
     </header>
 
     <script>
