@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerajaan Aceh Darussalam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coklat-gelap: #3A2E26;
+            --emas: #D4AF37;
+            --krem: #F5E6CA;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--coklat-gelap);
+            color: var(--krem);
+            margin: 0;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--emas);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s 0.3s forwards;
+        }
+
+        p.subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s 0.6s forwards;
+        }
+
+        /* Tombol Utama */
+        .btn-gold {
+            background: linear-gradient(90deg, var(--coklat-gelap), var(--emas));
+            color: var(--coklat-gelap);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.5s;
+            font-weight: bold;
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s 0.9s forwards;
+        }
+
+        .btn-gold:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Animasi */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            p.subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header>
+        <h1>KERAJAAN ACEH DARUSSALAM</h1>
+        <p class="subtitle">Kejayaan Islam di Ujung Sumatra</p>
+        <a href="#jelajahi" class="btn-gold">Jelajahi Sekarang</a>
+    </header>
+
+    <script>
+        // Animasi tombol saat hover
+        const btn = document.querySelector('.btn-gold');
+        btn.addEventListener('mouseenter', () => {
+            btn.style.transform = 'scale(1.1) translateY(-5px)';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'scale(1) translateY(0)';
+        });
+    </script>
+</body>
+</html>
