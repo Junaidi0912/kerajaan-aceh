@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Kerajaan Aceh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coklat-gelap: #3A2E26;
+            --coklat-terang: #5E4B3A;
+            --emas: #D4AF37;
+            --krem: #F5E6CA;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--coklat-gelap);
+            color: var(--krem);
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--emas);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .materi-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .materi-card {
+            background: linear-gradient(135deg, var(--coklat-terang), #4a3a2a);
+            border: 2px solid var(--emas);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .materi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+            border-color: #f1c40f;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--emas);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--emas);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px dashed var(--emas);
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .card-desc {
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .materi-card {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .materi-card:nth-child(1) { animation-delay: 0.2s; }
+        .materi-card:nth-child(2) { animation-delay: 0.4s; }
+        .materi-card:nth-child(3) { animation-delay: 0.6s; }
+        .materi-card:nth-child(4) { animation-delay: 0.8s; }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .materi-container {
+                grid-template-columns: 1fr;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">JEJAK KEBESARAN KERAJAAN ACEH</h1>
+
+    <div class="materi-container">
+        <!-- Kartu 1 -->
+        <div class="materi-card" onclick="location.href='#kedatangan'">
+            <div class="card-icon">🌊</div>
+            <h2 class="card-title">Asal-Usul Kerajaan Aceh</h2>
+            <div class="card-desc">
+                <p>Menelusuri jejak awal mula berdirinya kerajaan Islam terbesar di Sumatra, mulai dari pengaruh Samudera Pasai hingga konsolidasi kekuasaan di abad ke-15.</p>
+                <p><em>"Dari pelabuhan kecil menjadi mercusuar peradaban..."</em></p>
+            </div>
+        </div>
+
+        <!-- Kartu 2 -->
+        <div class="materi-card" onclick="location.href='#pendiri'">
+            <div class="card-icon">⚔️</div>
+            <h2 class="card-title">Sang Pendiri Kerajaan</h2>
+            <div class="card-desc">
+                <p>Mengenal Sultan Ali Mughayat Syah - sang visioner yang mempersatukan wilayah Aceh dan meletakkan dasar kerajaan berbasis syariat Islam.</p>
+                <p><em>"Pahlawan yang terlupakan dalam sejarah Nusantara..."</em></p>
+            </div>
+        </div>
+
+        <!-- Kartu 3 -->
+        <div class="materi-card" onclick="location.href='#peristiwa'">
+            <div class="card-icon">📜</div>
+            <h2 class="card-title">Momentum Bersejarah</h2>
+            <div class="card-desc">
+                <p>Catatan penting kejayaan Aceh: dari ekspansi teritorial, hubungan diplomatik dengan kekaisaran Ottoman, hingga perlawanan terhadap Portugis.</p>
+                <p><em>"Titik-titik emas yang membentuk legenda..."</em></p>
+            </div>
+        </div>
+
+        <!-- Kartu 4 -->
+        <div class="materi-card" onclick="location.href='#keruntuhan'">
+            <div class="card-icon">⌛</div>
+            <h2 class="card-title">Senja Kekuasaan</h2>
+            <div class="card-desc">
+                <p>Analisis penyebab kemunduran: perang saudara, tekanan kolonial Belanda, hingga hilangnya hegemoni di Selat Malaka pada abad ke-19.</p>
+                <p><em>"Ketika mercusuar Islam itu mulai meredup..."</em></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Efek klik kartu
+        document.querySelectorAll('.materi-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1) translateY(-10px)';
+                    // Arahkan ke halaman detail
+                    window.location.href = this.getAttribute('onclick').split("'")[1];
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
