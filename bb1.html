@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asal-Usul Kerajaan Aceh</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display :wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css ">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --coklat-gelap: #3A2E26;
@@ -13,6 +12,7 @@
             --emas: #D4AF37;
             --krem: #F5E6CA;
         }
+
         body {
             font-family: 'Lora', serif;
             background-color: var(--coklat-gelap);
@@ -21,11 +21,13 @@
             line-height: 1.8;
             overflow-x: hidden;
         }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
+
         /* Header */
         .bab-header {
             text-align: center;
@@ -33,6 +35,7 @@
             padding-bottom: 2rem;
             position: relative;
         }
+
         .bab-header::after {
             content: '';
             position: absolute;
@@ -42,6 +45,7 @@
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--emas), transparent);
         }
+
         .bab-title {
             font-family: 'Playfair Display', serif;
             color: var(--emas);
@@ -49,27 +53,31 @@
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             opacity: 0;
-            animation: fadeInDown 1.5s 0.3s forwards;
+            animation: fadeInDown 1s forwards;
         }
+
         .bab-subtitle {
             font-style: italic;
             color: var(--emas);
             opacity: 0.8;
             opacity: 0;
-            animation: fadeIn 2s 0.8s forwards;
+            animation: fadeIn 1.5s 0.5s forwards;
         }
+
         /* Konten */
         h2 {
             font-family: 'Playfair Display', serif;
             color: var(--emas);
             margin-top: 3rem;
             opacity: 0;
-            animation: fadeInLeft 1s forwards;
+            animation: fadeInLeft 1s 0.7s forwards;
         }
+
         p, ul {
             opacity: 0;
-            animation: fadeIn 1.5s 0.5s forwards;
+            animation: fadeIn 1s 0.9s forwards;
         }
+
         .highlight {
             background: rgba(212, 175, 55, 0.1);
             border-left: 4px solid var(--emas);
@@ -80,9 +88,9 @@
             position: relative;
             overflow: hidden;
             opacity: 0;
-            transform: translateX(-50px);
-            animation: fadeInRight 1s 0.7s forwards;
+            animation: fadeInRight 1s 1s forwards;
         }
+
         .highlight::before {
             content: '';
             position: absolute;
@@ -93,6 +101,7 @@
             background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
             animation: shine 3s infinite;
         }
+
         /* Tombol Kembali */
         .btn-back {
             display: inline-block;
@@ -103,48 +112,75 @@
             text-decoration: none;
             font-weight: bold;
             margin-top: 3rem;
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: all 0.3s;
             border: 2px solid transparent;
             opacity: 0;
-            animation: fadeInUp 1s 1s forwards;
-            position: relative;
-            overflow: hidden;
+            animation: fadeInUp 1s 1.2s forwards;
         }
+
         .btn-back:hover {
             background: transparent;
             color: var(--emas);
             border-color: var(--emas);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
-        .btn-back::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(30deg);
-            animation: btnShine 3s infinite;
-        }
+
         /* Animasi Kustom */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
+            from { 
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
+
         @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+            from { 
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
+
         @keyframes shine {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
-        @keyframes btnShine {
-            0% { transform: rotate(30deg) translate(-30%, -30%); }
-            100% { transform: rotate(30deg) translate(30%, 30%); }
-        }
+
         /* Responsif */
         @media (max-width: 768px) {
             .bab-title {
@@ -163,48 +199,72 @@
             <h1 class="bab-title">Asal-Usul Kerajaan Aceh</h1>
             <p class="bab-subtitle">"Dari Pelabuhan Kecil Menuju Mercusuar Peradaban Islam di Nusantara"</p>
         </header>
+
         <!-- Konten Utama -->
         <main>
-            <h2 style="animation-delay: 0.3s">Latar Belakang Sejarah</h2>
-            <p style="animation-delay: 0.5s">
-                Kerajaan Aceh Darussalam berdiri pada tahun 1496 Masehi, di ujung utara Pulau Sumatra. 
-                Keberadaannya tidak lepas dari pengaruh Kerajaan Samudera Pasai yang sebelumnya telah 
-                menjadi pusat Islam pertama di Nusantara. Pada masa itu, Aceh berkembang menjadi 
-                pelabuhan penting di jalur perdagangan rempah dunia.
+            <h2>Menguak Jejak Awal</h2>
+            <p>
+                Di penghujung abad ke-15, ketika Eropa baru memulai era penjelajahan samudera, di ujung utara Pulau Sumatra telah berdiri sebuah kerajaan yang kelak menjadi legenda. Kerajaan Aceh Darussalam lahir tahun 1496 M, bukan sebagai bayi yang lemah, tetapi sebagai raksasa yang siap menguasai Selat Malaka.
             </p>
-            <div class="highlight" style="animation-delay: 0.7s">
-                "Kejatuhan Malaka ke tangan Portugis tahun 1511 menjadi momentum emas Aceh 
-                untuk mengambil alih peran sebagai pusat perdagangan dan penyebaran Islam 
-                di Asia Tenggara."
+
+            <div class="highlight">
+                "Sejarawan Taufik Abdullah menyebut Aceh sebagai 'jendela Nusantara ke dunia Islam'. Di sini, rempah-rempah bukan hanya komoditas dagang, melainkan mata uang diplomasi yang mengubah peta kekuasaan regional."
             </div>
 
-            <h2 style="animation-delay: 0.3s">Faktor Pendirian</h2>
-            <p style="animation-delay: 0.5s">
-                Beberapa faktor kunci yang mendorong berdirinya Kerajaan Aceh:
+            <h2>Rahasia Dibalik Kelahiran Sang Raksasa</h2>
+            <p>
+                Ada empat faktor utama yang menjelaskan mengapa Aceh mampu bangkit sebagai kekuatan baru:
             </p>
-            <ul style="animation-delay: 0.7s">
-                <li>Lokasi strategis di pintu masuk Selat Malaka</li>
-                <li>Kekosongan kekuasaan pasca kemunduran Samudera Pasai</li>
-                <li>Kebutuhan basis pertahanan melawan kolonialisme Portugis</li>
-                <li>Penyatuan wilayah-wilayah kecil di bawah satu pemerintahan</li>
+            <ul>
+                <li><strong>Strategi Geopolitik:</strong> Posisi strategis di Selat Malaka</li>
+                <li><strong>Warisan Samudera Pasai:</strong> Jaringan ulama dan pemerintahan yang mapan</li>
+                <li><strong>Ancaman Portugis:</strong> Memicu persatuan masyarakat Muslim</li>
+                <li><strong>Kepemimpinan Visioner:</strong> Sultan Ali Mughayat Syah sebagai arsitek kerajaan</li>
             </ul>
 
-            <h2 style="animation-delay: 0.3s">Masa Pembentukan</h2>
-            <p style="animation-delay: 0.5s">
-                Tahun 1496-1528 merupakan periode konsolidasi di bawah Sultan Ali Mughayat Syah. 
-                Beliau berhasil:
+            <h2>Tahun-Tahun Penentu (1496-1528)</h2>
+            <p>
+                Di bawah Sultan Ali Mughayat Syah, Aceh mengalami metamorfosis menakjubkan:
             </p>
-            <ul style="animation-delay: 0.7s">
-                <li>Menyatukan wilayah Daya, Pedir, dan Pasai</li>
-                <li>Membangun sistem pemerintahan berbasis Islam</li>
-                <li>Mendirikan ibukota di Bandar Aceh Darussalam</li>
-                <li>Membentuk angkatan laut yang kuat</li>
+            <ul>
+                <li><strong>Penyatuan Wilayah:</strong> Menyatukan Daya, Pedir, dan Pasai</li>
+                <li><strong>Sistem Pemerintahan:</strong> Penerapan syariat Islam secara sistematis</li>
+                <li><strong>Pembangunan Ibukota:</strong> Bandar Aceh Darussalam sebagai kota kosmopolitan</li>
+                <li><strong>Kekuatan Militer:</strong> Pembangunan angkatan laut yang disegani</li>
             </ul>
         </main>
+
         <!-- Tombol Navigasi -->
         <div style="text-align: center;">
             <a href="https://junaidi0912.github.io/kerajaan-aceh/bab" class="btn-back">Kembali ke Daftar Bab</a>
         </div>
     </div>
+
+    <script>
+        // Animasi saat scroll
+        document.addEventListener("DOMContentLoaded", function() {
+            // Trigger animasi elemen yang sudah ada
+            const elements = document.querySelectorAll('.bab-title, .bab-subtitle, h2, p, .highlight, ul, .btn-back');
+            elements.forEach(el => {
+                el.style.animationPlayState = 'running';
+            });
+
+            // Efek parallax sederhana
+            window.addEventListener("scroll", function() {
+                const scrollPosition = window.scrollY;
+                document.querySelector(".bab-title").style.transform = `translateY(${scrollPosition * 0.2}px)`;
+                document.querySelector(".bab-subtitle").style.transform = `translateY(${scrollPosition * 0.15}px)`;
+            });
+
+            // Efek hover untuk tombol
+            const btnBack = document.querySelector('.btn-back');
+            btnBack.addEventListener('mouseenter', () => {
+                btnBack.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            btnBack.addEventListener('mouseleave', () => {
+                btnBack.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
