@@ -55,6 +55,7 @@
             color: transparent;
             margin-bottom: 1rem;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            animation: textGlow 3s ease-in-out infinite alternate;
         }
 
         .page-subtitle {
@@ -62,6 +63,7 @@
             opacity: 0.9;
             max-width: 800px;
             margin: 0 auto;
+            animation: fadeIn 2s ease-out;
         }
 
         /* Timeline Section */
@@ -71,23 +73,13 @@
             margin: 4rem 0;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--emas), transparent);
-        }
-
         .timeline-item {
             position: relative;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             width: 100%;
             display: flex;
             justify-content: center;
+            perspective: 1000px;
         }
 
         .timeline-content {
@@ -99,11 +91,29 @@
             box-shadow: var(--shadow-xl);
             transition: all 0.5s ease;
             text-align: center;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                          transparent 0%, 
+                          rgba(212, 175, 55, 0.05) 50%, 
+                          transparent 100%);
+            animation: shine 8s infinite;
+            z-index: -1;
         }
 
         .timeline-content:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 25px 50px -15px rgba(212, 175, 55, 0.5);
             border-color: var(--emas);
         }
 
@@ -112,29 +122,41 @@
             color: var(--emas);
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            animation: pulse 2s infinite;
         }
 
         .timeline-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--krem);
+            position: relative;
+            display: inline-block;
+        }
+
+        .timeline-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 2px;
+            background: var(--emas);
+            transform-origin: center;
+            transition: all 0.5s;
+        }
+
+        .timeline-content:hover .timeline-title::after {
+            width: 80%;
+            background: linear-gradient(to right, transparent, var(--emas), transparent);
         }
 
         .timeline-desc {
             line-height: 1.8;
             text-align: left;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--emas);
-            border-radius: 50%;
-            box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.3);
+            position: relative;
+            z-index: 1;
         }
 
         /* Quote Section */
@@ -149,6 +171,24 @@
             border-radius: 0 10px 10px 0;
             width: 80%;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: borderPulse 4s infinite;
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                          transparent 0%, 
+                          rgba(212, 175, 55, 0.05) 50%, 
+                          transparent 100%);
+            animation: shineHorizontal 6s infinite;
+            z-index: -1;
         }
 
         /* Back Button */
@@ -166,11 +206,66 @@
             text-decoration: none;
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .back-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                          transparent, 
+                          rgba(255, 255, 255, 0.2), 
+                          transparent);
+            transition: all 0.5s;
+            z-index: -1;
         }
 
         .back-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .back-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Animations */
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+            100% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.7); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes shineHorizontal {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(100%) skewX(-15deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes borderPulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
         /* Responsive */
@@ -188,21 +283,8 @@
                 font-size: 1.1rem;
             }
             
-            .timeline::before {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                justify-content: flex-start;
-                padding-left: 50px;
-            }
-            
             .timeline-content {
-                width: 100%;
-            }
-            
-            .timeline-item::after {
-                left: 20px;
+                width: 90%;
             }
             
             .quote-section {
@@ -214,8 +296,8 @@
 <body>
     <div class="container">
         <!-- Header -->
-        <header class="page-header animate__animated animate__fadeIn">
-            <h1 class="page-title">Momentum Bersejarah</h1>
+        <header class="page-header">
+            <h1 class="page-title animate__animated animate__fadeIn">Momentum Bersejarah</h1>
             <p class="page-subtitle">Peristiwa-peristiwa penting yang mengukuhkan kejayaan Kerajaan Aceh sebagai pusat peradaban Islam di Asia Tenggara</p>
         </header>
 
@@ -278,7 +360,7 @@
         </div>
 
         <!-- Quote Section -->
-        <div class="quote-section animate__animated animate__fadeIn">
+        <div class="quote-section">
             <p>"Kerajaan Aceh bukan hanya penguasa wilayah, tetapi juga penjaga marwah Islam di Nusantara. Di bawah panji Darussalam, mereka membangun peradaban yang disegani dunia."</p>
             <p style="text-align: right; margin-top: 1rem;">— Sejarawan Anthony Reid</p>
         </div>
@@ -289,22 +371,65 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script>
-        // Animate timeline items on scroll
+        // Enhanced animations with GSAP
         document.addEventListener("DOMContentLoaded", function() {
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            
-            timelineItems.forEach((item, index) => {
+            // Header animation
+            gsap.from(".page-title", {
+                duration: 1.5,
+                y: -50,
+                opacity: 0,
+                ease: "power3.out"
+            });
+
+            // Timeline items animation
+            gsap.utils.toArray(".timeline-item").forEach((item, i) => {
                 gsap.from(item, {
-                    opacity: 0,
-                    y: 50,
-                    duration: 0.8,
-                    delay: index * 0.2,
                     scrollTrigger: {
                         trigger: item,
                         start: "top 80%",
                         toggleActions: "play none none none"
-                    }
+                    },
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    delay: i * 0.2,
+                    ease: "back.out(1)"
                 });
+            });
+
+            // Hover effect for timeline items
+            document.querySelectorAll(".timeline-content").forEach(item => {
+                item.addEventListener("mouseenter", () => {
+                    gsap.to(item, {
+                        duration: 0.3,
+                        y: -10,
+                        rotateX: 5,
+                        boxShadow: "0 25px 50px -15px rgba(212, 175, 55, 0.5)",
+                        ease: "power2.out"
+                    });
+                });
+                item.addEventListener("mouseleave", () => {
+                    gsap.to(item, {
+                        duration: 0.3,
+                        y: 0,
+                        rotateX: 0,
+                        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
+                        ease: "power2.out"
+                    });
+                });
+            });
+
+            // Button animation
+            gsap.from(".back-btn", {
+                scrollTrigger: {
+                    trigger: ".quote-section",
+                    start: "bottom 80%",
+                    toggleActions: "play none none none"
+                },
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                ease: "elastic.out(1, 0.5)"
             });
         });
     </script>
