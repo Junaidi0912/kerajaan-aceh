@@ -22,13 +22,20 @@
             margin: 0;
             min-height: 100vh;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 900px;
+            width: 90%;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 4rem 0;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Header */
@@ -36,11 +43,12 @@
             text-align: center;
             margin-bottom: 4rem;
             position: relative;
+            width: 100%;
         }
 
         .page-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             background: linear-gradient(to right, var(--emas), #f1c40f);
             -webkit-background-clip: text;
             background-clip: text;
@@ -50,7 +58,7 @@
         }
 
         .page-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             opacity: 0.9;
             max-width: 800px;
             margin: 0 auto;
@@ -59,8 +67,8 @@
         /* Timeline Section */
         .timeline {
             position: relative;
-            max-width: 900px;
-            margin: 4rem auto;
+            width: 100%;
+            margin: 4rem 0;
         }
 
         .timeline::before {
@@ -79,16 +87,7 @@
             margin-bottom: 4rem;
             width: 100%;
             display: flex;
-            justify-content: flex-end;
-            padding-right: 50%;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            justify-content: flex-start;
-            padding-right: 0;
-            padding-left: 50%;
-            text-align: left;
+            justify-content: center;
         }
 
         .timeline-content {
@@ -96,10 +95,10 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 15px;
             padding: 2rem;
-            width: 90%;
+            width: 80%;
             box-shadow: var(--shadow-xl);
             transition: all 0.5s ease;
-            cursor: pointer;
+            text-align: center;
         }
 
         .timeline-content:hover {
@@ -123,25 +122,19 @@
 
         .timeline-desc {
             line-height: 1.8;
+            text-align: left;
         }
 
         .timeline-item::after {
             content: '';
             position: absolute;
-            top: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             width: 20px;
             height: 20px;
             background: var(--emas);
             border-radius: 50%;
             box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.3);
-        }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
         }
 
         /* Quote Section */
@@ -154,6 +147,8 @@
             font-size: 1.2rem;
             line-height: 1.8;
             border-radius: 0 10px 10px 0;
+            width: 80%;
+            text-align: center;
         }
 
         /* Back Button */
@@ -170,6 +165,7 @@
             transition: all 0.3s;
             text-decoration: none;
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            text-align: center;
         }
 
         .back-btn:hover {
@@ -179,27 +175,38 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 2rem 0;
+                width: 95%;
+            }
+            
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
             .timeline::before {
                 left: 30px;
             }
-
-            .timeline-item, .timeline-item:nth-child(even) {
-                padding-left: 70px;
-                padding-right: 0;
-                text-align: left;
+            
+            .timeline-item {
                 justify-content: flex-start;
+                padding-left: 50px;
             }
-
-            .timeline-item::after, .timeline-item:nth-child(even)::after {
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-item::after {
                 left: 20px;
             }
-
-            .page-title {
-                font-size: 2.5rem;
-            }
-
-            .page-subtitle {
-                font-size: 1.2rem;
+            
+            .quote-section {
+                width: 90%;
             }
         }
     </style>
@@ -215,7 +222,7 @@
         <!-- Timeline Section -->
         <div class="timeline">
             <!-- Item 1 -->
-            <div class="timeline-item animate__animated animate__fadeInRight">
+            <div class="timeline-item animate__animated animate__fadeIn">
                 <div class="timeline-content">
                     <div class="timeline-year">1521</div>
                     <h3 class="timeline-title">Penyatuan Wilayah Aceh</h3>
@@ -226,7 +233,7 @@
             </div>
 
             <!-- Item 2 -->
-            <div class="timeline-item animate__animated animate__fadeInLeft">
+            <div class="timeline-item animate__animated animate__fadeIn">
                 <div class="timeline-content">
                     <div class="timeline-year">1568</div>
                     <h3 class="timeline-title">Ekspansi ke Sumatra Utara</h3>
@@ -237,7 +244,7 @@
             </div>
 
             <!-- Item 3 -->
-            <div class="timeline-item animate__animated animate__fadeInRight">
+            <div class="timeline-item animate__animated animate__fadeIn">
                 <div class="timeline-content">
                     <div class="timeline-year">1582</div>
                     <h3 class="timeline-title">Hubungan dengan Ottoman</h3>
@@ -248,7 +255,7 @@
             </div>
 
             <!-- Item 4 -->
-            <div class="timeline-item animate__animated animate__fadeInLeft">
+            <div class="timeline-item animate__animated animate__fadeIn">
                 <div class="timeline-content">
                     <div class="timeline-year">1607-1636</div>
                     <h3 class="timeline-title">Era Keemasan Sultan Iskandar Muda</h3>
@@ -259,7 +266,7 @@
             </div>
 
             <!-- Item 5 -->
-            <div class="timeline-item animate__animated animate__fadeInRight">
+            <div class="timeline-item animate__animated animate__fadeIn">
                 <div class="timeline-content">
                     <div class="timeline-year">1641</div>
                     <h3 class="timeline-title">Perlawanan terhadap Portugis</h3>
