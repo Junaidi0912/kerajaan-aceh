@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runtuhnya Kejayaan Aceh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --coklat: #5E4B3A;
+            --emas: #D4AF37;
+            --krem: #F5E6CA;
+            --bg: #3A2E26;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--krem);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            color: var(--emas);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--emas), #f1c40f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 2s infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Penyebab Runtuh */
+        .collapse-section {
+            margin: 3rem 0;
+        }
+
+        .collapse-item {
+            background: rgba(90, 75, 58, 0.5);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .collapse-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .collapse-header {
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border-left: 4px solid var(--emas);
+        }
+
+        .collapse-title {
+            font-weight: 600;
+            color: var(--emas);
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .collapse-icon {
+            transition: transform 0.3s;
+        }
+
+        .collapse-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapse-item.active .collapse-content {
+            max-height: 500px;
+            padding: 1.5rem;
+        }
+
+        .collapse-item.active .collapse-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 4rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-year {
+            min-width: 100px;
+            font-weight: bold;
+            color: var(--emas);
+        }
+
+        .timeline-content {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            flex-grow: 1;
+            border-left: 3px solid var(--emas);
+        }
+
+        .timeline-content h3 {
+            color: var(--emas);
+            margin-top: 0;
+        }
+
+        /* Animasi */
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+            to { text-shadow: 0 0 20px rgba(212, 175, 55, 0.8); }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .title { font-size: 2rem; }
+            .timeline-item { flex-direction: column; }
+            .timeline-year { margin-bottom: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header animate__animated animate__fadeIn">
+            <h1 class="title">Keruntuhan Kerajaan Aceh</h1>
+            <p class="subtitle">Bagaimana kerajaan besar ini akhirnya jatuh setelah 400 tahun berjaya</p>
+        </header>
+
+        <section class="collapse-section">
+            <h2 style="color: var(--emas); text-align: center; margin-bottom: 2rem;">3 Penyebab Utama Runtuhnya Aceh</h2>
+            
+            <div class="collapse-item">
+                <div class="collapse-header">
+                    <h3 class="collapse-title">1. Perebutan Kekuasaan</h3>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <p>Setelah Sultan Iskandar Thani wafat (1641), terjadi perebutan tahta antara para bangsawan. Tidak ada pemimpin kuat yang bisa menyatukan Aceh seperti sebelumnya. Kerajaan terpecah menjadi daerah-daerah kecil yang saling bersaing.</p>
+                </div>
+            </div>
+
+            <div class="collapse-item">
+                <div class="collapse-header">
+                    <h3 class="collapse-title">2. Melemahnya Perdagangan</h3>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <p>Belanda dan Inggris menguasai Selat Malaka. Pelabuhan Aceh tidak lagi menjadi pusat perdagangan rempah yang penting. Penghasilan kerajaan berkurang drastis sehingga sulit membiayai pemerintahan dan tentara.</p>
+                </div>
+            </div>
+
+            <div class="collapse-item">
+                <div class="collapse-header">
+                    <h3 class="collapse-title">3. Serangan Belanda</h3>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="collapse-content">
+                    <p>Belanda mulai menyerang Aceh tahun 1873. Walaupun rakyat Aceh melawan dengan gagah berani dipimpin pahlawan seperti Teuku Umar dan Cut Nyak Dhien, Belanda akhirnya berhasil menguasai Aceh pada tahun 1903.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <h2 style="color: var(--emas); text-align: center; margin-bottom: 2rem;">Tahapan Keruntuhan</h2>
+            
+            <div class="timeline-item animate__animated animate__fadeIn">
+                <div class="timeline-year">1824</div>
+                <div class="timeline-content">
+                    <h3>Traktat London</h3>
+                    <p>Inggris dan Belanda sepakat membagi wilayah. Aceh diisolasi secara politik dan tidak mendapat bantuan dari negara lain.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item animate__animated animate__fadeIn">
+                <div class="timeline-year">1873</div>
+                <div class="timeline-content">
+                    <h3>Perang Aceh Dimulai</h3>
+                    <p>Belanda menyerang Aceh tetapi gagal. Perang ini menjadi perang terlama dalam sejarah kolonial Belanda (30 tahun).</p>
+                </div>
+            </div>
+
+            <div class="timeline-item animate__animated animate__fadeIn">
+                <div class="timeline-year">1903</div>
+                <div class="timeline-content">
+                    <h3>Kekalahan Aceh</h3>
+                    <p>Sultan Muhammad Daud Syah menyerah. Aceh resmi menjadi bagian Hindia Belanda, mengakhiri era kerajaan.</p>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="https://junaidi0912.github.io/kerajaan-aceh/bab" 
+               style="background: var(--emas); 
+                      color: var(--bg); 
+                      padding: 1rem 2rem; 
+                      border-radius: 50px; 
+                      text-decoration: none;
+                      font-weight: bold;
+                      display: inline-block;
+                      transition: all 0.3s;"
+               onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 20px rgba(212, 175, 55, 0.5)'"
+               onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+                Kembali ke Menu Utama
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk collapse
+        document.querySelectorAll('.collapse-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Animasi scroll
+        document.addEventListener("DOMContentLoaded", () => {
+            const items = document.querySelectorAll('.timeline-item, .collapse-item');
+            
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = 1;
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
